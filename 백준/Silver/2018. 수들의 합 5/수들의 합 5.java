@@ -21,7 +21,7 @@ public class Main {
 		
 		while (end_index != N) {
 			if (sum == N) {
-				count++; 
+				count++;
 				end_index++; 
 				sum += end_index;
 			} else if (sum > N) {
