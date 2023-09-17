@@ -7,24 +7,33 @@ import java.util.StringTokenizer;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		배열 두 개의 길이를 입력
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int n = Integer.parseInt(st.nextToken());  //첫번째 배열 길이
-		int m = Integer.parseInt(st.nextToken());  //두번째 배열 길이 		
-		int [] arr = new int[n+m];  //정렬할 배열 초기화 
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
 		
-		st = new StringTokenizer(br.readLine());  //첫번째 배열 
+//		첫 번째 배열 입력
+		int[] arr = new int [N + M];
 		
-		for (int i = 0; i < n; i++) { 
-			arr[i]= Integer.parseInt(st.nextToken());
+		st = new StringTokenizer(br.readLine());
+		
+		for (int i = 0; i < N; i++) {
+			arr[i] = Integer.parseInt(st.nextToken());
 		}
-		st = new StringTokenizer(br.readLine()); //두번째 배열 
 		
-		for (int i = 0; i < m; i++) {
-			arr[i+n] = Integer.parseInt(st.nextToken()); 
+//		두 번째 배열 입력
+		st = new StringTokenizer(br.readLine());
+		
+		for (int i = N; i < N + M; i++) {
+			arr[i] = Integer.parseInt(st.nextToken());
 		}
-		Arrays.sort(arr); //정렬 
+		
+
+		
+//		배열을 정렬
+		Arrays.sort(arr);
 		
 		StringBuilder sb = new StringBuilder();
 		
