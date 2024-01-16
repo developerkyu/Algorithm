@@ -1,10 +1,9 @@
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
 class Solution {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
-        ArrayList<Integer> A = new ArrayList<>();
+        int[] answer = new int[photo.length];
 		
 		Map<String, Integer> nameDic = new HashMap<>();
 		
@@ -23,13 +22,7 @@ class Solution {
 				}
 			}
 			
-			A.add(count);
-		}
-		
-		int[] answer = new int [A.size()];
-		int size = 0;
-		for (int num : A) {
-			answer[size++] = num;
+			answer[i] = count;
 		}
 		
         return answer;
