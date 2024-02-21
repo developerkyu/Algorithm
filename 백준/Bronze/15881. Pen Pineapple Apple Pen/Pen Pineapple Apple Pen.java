@@ -11,7 +11,7 @@ public class Main {
 	
 		st = new StringTokenizer(br.readLine());
 		String s = st.nextToken();
-		String sPattern = "\\.*pPAp\\.*";
+		String sPattern = "pPAp";
 		Pattern pattern = Pattern.compile(sPattern);
 		Matcher matcher = pattern.matcher(s);
 		
