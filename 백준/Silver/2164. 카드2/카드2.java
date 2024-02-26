@@ -29,14 +29,9 @@ public class Main {
 			queue.add(i);
 		}
 		
-		while (queue.size() > 2) {
-			queue.remove();
-			int n = queue.poll();
-			queue.add(n);
-		}
-		
-		while (queue.size() == 2) {
-			queue.remove();
+		while (queue.size() > 1) {
+			queue.poll();
+			queue.add(queue.poll());
 		}
 		
 		System.out.println(queue.peek());
