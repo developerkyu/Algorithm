@@ -1,52 +1,36 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
-public class Main {
-
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		int N = Integer.parseInt(st.nextToken());
-		
-		int list [] = new int [N];
-		
-		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < N; i++) {
-			list[i] = Integer.parseInt(st.nextToken());
-		}
-		
-		Arrays.sort(list);
-		
-		st = new StringTokenizer(br.readLine());
-		int M = Integer.parseInt(st.nextToken());
-		
-		st = new StringTokenizer(br.readLine());
-		
-		for (int i = 0; i < M; i ++) {
-			int answer = 0;
-			int start = 0, end = N - 1;
-			int num = Integer.parseInt(st.nextToken());
-			
-			while (start <= end) {
-				int mid = (start + end) / 2;
-				if (list[mid] == num) {
-					answer = 1;
-					break;
-				} else if (list[mid] > num) {
-					end = mid - 1;
-				} else if (list[mid] < num) {
-					start = mid + 1;
-				}
-			}
-			
-			System.out.println(answer);
-		}
-		
-		
-	}
-
+class Main {
+    static int target;
+    static int[] data;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        int N = Integer.parseInt(br.readLine());
+        data = new int [N];
+        
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < N; i++) {
+            data[i] = Integer.parseInt(st.nextToken());
+        }
+        
+        Arrays.sort(data);
+        
+        int M = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < M; i++) {
+            target = Integer.parseInt(st.nextToken());
+            BS(0, N - 1);
+        }
+    }
+    
+    public static void BS(int start, int end) {
+        int mid = (start + end) / 2;
+        
+        if (start >= end && data[mid] != target) System.out.println(0);
+        else if (data[mid] == target) System.out.println(1);
+        else if (data[mid] > target) BS(start, mid - 1);
+        else if (data[mid] < target) BS(mid + 1, end);
+    }
 }
