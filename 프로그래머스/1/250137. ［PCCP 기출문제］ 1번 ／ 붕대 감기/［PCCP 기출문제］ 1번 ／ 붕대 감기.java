@@ -23,8 +23,7 @@ class Solution {
                 hp -= damages[i];
                 count = 0;
                 if (hp <= 0) {
-                    survive = false;
-                    break;
+                    return -1;
                 }
             } else {
                 if (hp < health) {
@@ -40,12 +39,10 @@ class Solution {
                     }
                 } else if (hp >= health) {
                 	count++;
-                	continue;
                 };
             }
         }
         
-        if (!survive) return -1;
-        else return hp;
+        return hp;
     }
 }
